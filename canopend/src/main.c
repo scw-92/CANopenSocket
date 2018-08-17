@@ -212,7 +212,7 @@ int main (int argc, char *argv[]) {
     printf("%s - starting CANopen device with Node ID %d(0x%02X)", argv[0], nodeId, nodeId);
 
 
-    /* Verify, if OD structures have proper alignment of initial values */
+    /* Verify, if OD structures have proper alignment of initial values 验证OD结构是否具有正确的初始值对齐*/
     if(CO_OD_RAM.FirstWord != CO_OD_RAM.LastWord) {
         fprintf(stderr, "Program init - %s - Error in CO_OD_RAM.\n", argv[0]);
         exit(EXIT_FAILURE);
@@ -238,7 +238,7 @@ int main (int argc, char *argv[]) {
     if(signal(SIGTERM, sigHandler) == SIG_ERR)
         CO_errExit("Program init - SIGTERM handler creation failed");
 
-    /* increase variable each startup. Variable is automatically stored in non-volatile memory. */
+    /* increase variable each startup. Variable is automatically stored in non-volatile memory. 每次启动增加变量。 变量自动存储在非易失性存储器中*/
     printf(", count=%u ...\n", ++OD_powerOnCounter);
 
 
