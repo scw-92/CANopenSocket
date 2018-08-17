@@ -48,11 +48,11 @@
 #endif
 
 
-#define NSEC_PER_SEC            (1000000000)    /* The number of nanoseconds per second. */
-#define NSEC_PER_MSEC           (1000000)       /* The number of nanoseconds per millisecond. */
-#define TMR_TASK_INTERVAL_NS    (1000000)       /* Interval of taskTmr in nanoseconds */
-#define TMR_TASK_OVERFLOW_US    (5000)          /* Overflow detect limit for taskTmr in microseconds */
-#define INCREMENT_1MS(var)      (var++)         /* Increment 1ms variable in taskTmr */
+#define NSEC_PER_SEC            (1000000000)    /* The number of nanoseconds per second.每秒纳秒数 */
+#define NSEC_PER_MSEC           (1000000)       /* The number of nanoseconds per millisecond. 每毫秒的纳秒数*/
+#define TMR_TASK_INTERVAL_NS    (1000000)       /* Interval of taskTmr in nanoseconds . taskTmr的间隔以纳秒为单位*/
+#define TMR_TASK_OVERFLOW_US    (5000)          /* Overflow detect limit for taskTmr in microseconds  taskTmr的溢出检测限以微秒为单位*/
+#define INCREMENT_1MS(var)      (var++)         /* Increment 1ms variable in taskTmr 在taskTmr中增加1ms变量*/
 
 
 /* Global variable increments each millisecond. */
@@ -94,7 +94,7 @@ void CO_errExit(char* msg) {
     exit(EXIT_FAILURE);
 }
 
-/* send CANopen generic emergency message */
+/* send CANopen generic emergency message 紧急消息*/
 void CO_error(const uint32_t info) {
     CO_errorReport(CO->em, CO_EM_GENERIC_SOFTWARE_ERROR, CO_EMC_SOFTWARE_INTERNAL, info);
     fprintf(stderr, "canopend generic error: 0x%X\n", info);
